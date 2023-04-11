@@ -1,4 +1,4 @@
-
+console.log("hello world!")
 // const background = new Image();
 // background.src = "./images/bg.png";
 // background.onload = function() {
