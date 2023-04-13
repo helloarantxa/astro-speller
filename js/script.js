@@ -15,6 +15,8 @@ const timer = document.getElementById("timer");
 timerContainer.style.display = "none"; // hide timer container initially
 let time = 30;
 let interval;
+
+//Array of words
 let wordHtml = document.querySelector('#word')
 let wordsArray = ['school', 'books', 'teacher', 'playground', 'desk', 'pencil', 'computer', 'crayon','glue','notebook']
 let word
@@ -119,6 +121,7 @@ function endGame() {
   document.getElementById("game-board").style.visibility = "hidden";
   timerContainer.style.display = "none"; // hide the timer container when the game ends
 
+  
   const body = document.querySelector('body');
     console.log(body,'body');
     body.classList.add('restart');
@@ -127,6 +130,11 @@ function endGame() {
         img.style.display = 'none';
     })
  
+    const restartBtn = document.getElementById("restartBtn");
+restartBtn.addEventListener("click", function() {
+  location.reload();
+});
+
 }
 
 function shuffleArray(array) {
