@@ -75,5 +75,11 @@ body {
     transform: translateX(-50%);
     z-index: 1;
   }
+
+  .restart{
+    background-image: none;
+    background-color: black;
+    height: 100vh;
+  }
   
   

@@ -5,12 +5,11 @@
 //   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 // }
 
-//Setting up the timer:
-//Setting up the timer:
-// Setting up the timer:
+//banner logo
 const bannerContainer = document.getElementById("banner-container");
 bannerContainer.classList.remove("hidden");
 
+//Setting up the timer:
 const timerContainer = document.querySelector(".timer-container");
 const timer = document.getElementById("timer");
 timerContainer.style.display = "none"; // hide timer container initially
@@ -46,14 +45,17 @@ startBtn.addEventListener("click", function() {
       time--;
       timer.innerText = time;
       if (time === 0) {
+        time = 30;
+        timer.innerText = 30;
         clearInterval(interval);
-        alert("Time's up! Game over.");
         endGame();
       }
     }, 1000);
   });
 
 function startGame() {
+    time = 30;
+    timer.innerText = 30;
   currentWordIndex = 0;
   findWord();
   console.log("word is ", word);
@@ -111,12 +113,20 @@ function checkGuess(guess) {
     }
   }
 
-
 function endGame() {
   clearInterval(interval);
   startBtn.style.display = "block";
   document.getElementById("game-board").style.visibility = "hidden";
   timerContainer.style.display = "none"; // hide the timer container when the game ends
+
+  const body = document.querySelector('body');
+    console.log(body,'body');
+    body.classList.add('restart');
+ const images = document.querySelectorAll('img');
+    images.forEach((img)=>{
+        img.style.display = 'none';
+    })
+ 
 }
 
 function shuffleArray(array) {
