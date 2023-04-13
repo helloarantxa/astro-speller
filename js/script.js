@@ -9,6 +9,16 @@
 const bannerContainer = document.getElementById("banner-container");
 bannerContainer.classList.remove("hidden");
 
+const body = document.querySelector('body');
+const images = document.querySelectorAll('img');
+const restartBtn = document.getElementById("restartBtn");
+restartBtn.style.visibility = 'hidden';
+const score = document.querySelector(".score");
+console.log(score.textContent);
+
+const over = document.querySelector(".over");
+
+
 //Setting up the timer:
 const timerContainer = document.querySelector(".timer-container");
 const timer = document.getElementById("timer");
@@ -56,6 +66,7 @@ startBtn.addEventListener("click", function() {
   });
 
 function startGame() {
+    restartBtn.style.visibility = 'hidden';
     time = 30;
     timer.innerText = 30;
   currentWordIndex = 0;
@@ -88,12 +99,22 @@ submitButton.addEventListener("click", function() {
   guessInput.value = ""; // clear the input field
 });
 
+let correctWord = 0;
+
+
 function checkGuess(guess) {
     console.log("Guess:", guess);
     console.log("Word:", word.join(""));
     if (guess === word.join("")) {
       clearInterval(interval);
-      document.getElementById("message").innerText = "You win!";
+      document.getElementById("message").innerText = "Correct!";
+    
+      correctWord++;
+      score.innerText = correctWord;
+      console.log(score);
+
+      console.log(correctWord);
+
       currentWordIndex++;
       if (currentWordIndex >= wordsArray.length) {
         endGame();
@@ -120,17 +141,21 @@ function endGame() {
   startBtn.style.display = "block";
   document.getElementById("game-board").style.visibility = "hidden";
   timerContainer.style.display = "none"; // hide the timer container when the game ends
-
-  
-  const body = document.querySelector('body');
+    score.style.visibility = 'visible';
     console.log(body,'body');
     body.classList.add('restart');
- const images = document.querySelectorAll('img');
-    images.forEach((img)=>{
-        img.style.display = 'none';
-    })
+    over.style.visibility = 'visible';
+
+
+  for( let i = 0; i < images.length; i++){
+    if (images[i].id === "restartBtn"){
+        images[i].style.visibility = 'visible'
+    }else{
+        images[i].style.visibility = 'hidden'
+    }
+  }
  
-    const restartBtn = document.getElementById("restartBtn");
+
 restartBtn.addEventListener("click", function() {
   location.reload();
 });
