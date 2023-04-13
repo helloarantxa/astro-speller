@@ -6,8 +6,14 @@
 // }
 
 //Setting up the timer:
+//Setting up the timer:
+// Setting up the timer:
+const bannerContainer = document.getElementById("banner-container");
+bannerContainer.classList.remove("hidden");
+
 const timerContainer = document.querySelector(".timer-container");
 const timer = document.getElementById("timer");
+timerContainer.style.display = "none"; // hide timer container initially
 let time = 30;
 let interval;
 let wordHtml = document.querySelector('#word')
@@ -21,33 +27,31 @@ shuffleArray(wordsArray);
 
 const startBtn = document.getElementById("startBtn");
 startBtn.addEventListener("click", function() {
-  startGame();
-  document.addEventListener("keydown", function(event){
-    console.log("word >", word,"event key >", event.key);
-  })
-
-  // Hide the start button and show the game board
-startBtn.style.display = "none";
-  document.getElementById("game-board").style.visibility = "visible";
-  timerContainer.style.display = "block";
-
- // Hide logo once start button is clicked
-logo.style.display = "none";
-  document.getElementById("game-board").style.visibility = "visible";
-  timerContainer.style.display = "block";
-
-  // Start the timer
-  interval = setInterval(() => {
-    draw();
-    time--;
-    timer.innerText = time;
-    if (time === 0) {
-      clearInterval(interval);
-      alert("Time's up! Game over.");
-      endGame();
-    }
-  }, 1000);
-});
+    startGame();
+    document.addEventListener("keydown", function(event){
+      console.log("word >", word,"event key >", event.key);
+    })
+  
+    // Hide the start button and show the game board
+    startBtn.style.display = "none";
+    document.getElementById("game-board").style.visibility = "visible";
+    timerContainer.style.display = "block";
+  
+    // Hide logo once start button is clicked
+    logo.style.display = "none";
+  
+    // Start the timer
+    interval = setInterval(() => {
+      draw();
+      time--;
+      timer.innerText = time;
+      if (time === 0) {
+        clearInterval(interval);
+        alert("Time's up! Game over.");
+        endGame();
+      }
+    }, 1000);
+  });
 
 function startGame() {
   currentWordIndex = 0;
@@ -81,37 +85,38 @@ submitButton.addEventListener("click", function() {
 });
 
 function checkGuess(guess) {
-  console.log("Guess:", guess);
-  console.log("Word:", word.join(""));
-  if (guess === word.join("")) {
-    clearInterval(interval);
-    alert("You win!");
-    currentWordIndex++;
-    if (currentWordIndex >= wordsArray.length) {
-      endGame();
+    console.log("Guess:", guess);
+    console.log("Word:", word.join(""));
+    if (guess === word.join("")) {
+      clearInterval(interval);
+      document.getElementById("message").innerText = "You win!";
+      currentWordIndex++;
+      if (currentWordIndex >= wordsArray.length) {
+        endGame();
+      } else {
+        findWord();
+        interval = setInterval(() => {
+          draw();
+          time--;
+          timer.innerText = time;
+          if (time === 0) {
+            clearInterval(interval);
+            document.getElementById("message").innerText = "Time's up! Game over.";
+            endGame();
+          }
+        }, 1000);
+      }
     } else {
-      findWord();
-      interval = setInterval(() => {
-        draw();
-        time--;
-        timer.innerText = time;
-        if (time === 0) {
-          clearInterval(interval);
-          alert("Time's up! Game over.");
-          endGame();
-        }
-      }, 1000);
+      document.getElementById("message").innerText = "Oops, try again.";
     }
-  } else {
-    alert("Oops, try again.");
   }
-}
+
 
 function endGame() {
   clearInterval(interval);
   startBtn.style.display = "block";
   document.getElementById("game-board").style.visibility = "hidden";
-  timerContainer.style.display = "none";
+  timerContainer.style.display = "none"; // hide the timer container when the game ends
 }
 
 function shuffleArray(array) {
@@ -120,6 +125,7 @@ function shuffleArray(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+
 
 
 

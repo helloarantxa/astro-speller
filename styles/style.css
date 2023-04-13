@@ -19,7 +19,6 @@ body {
     z-index: 1;
   }
   
-  
   #startBtn {
     cursor: pointer;
     width: 250px;
@@ -30,6 +29,7 @@ body {
   }
   
   #game-board {
+    margin-top: 150px;
     visibility: hidden;
     height: 0px;
   }
@@ -41,7 +41,7 @@ body {
     width: 100%;
     height: 100%;
   }
-
+  
   .timer-container {
     position: absolute;
     top: 20px;
@@ -51,7 +51,7 @@ body {
     padding: 40px;
     font-size: 24px;
     font-weight: bold;
-    z-index: 1;
+    z-index: 2;
     color: white;
   }
   
@@ -65,7 +65,15 @@ body {
     border-radius: 10px;
     font-size: 25px;
     color: white;
+    z-index: 2;
+  }
+  
+  #banner {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1;
   }
-
+  
   

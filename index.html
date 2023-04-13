@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,29 +7,27 @@
     <link rel="stylesheet" href="styles/style.css">
     <title>Astro-Speller</title>
   </head>
-  
   <body>
-    <div class="timer-container hidden">
-      <div id="timer">30</div>
-    </div>
-    
-    
     <img id="logo" src="./images/logo.png" alt="">
     <img id="startBtn" src="./images/startBtn.png" alt="Start">
     
     <div id="game-board">
-  
+      <div id="banner-container" class="hidden">
+        <img id="banner" src="./images/banner.png" alt="Banner">
       <div>
         <div>
           <h1 id="word"></h1>
           <label for="guess-input">Guess:</label>
           <input type="text" id="guess-input">
           <button id="submit-button">Check Word</button>
+          <div id="message"></div>
         </div>
       </div>
     </div>
-    
+    <div class="timer-container hidden">
+      <div id="timer">30</div>
+    </div>
     <script type="text/javascript" src="./js/script.js"></script>
   </body>
-
 </html>
+
