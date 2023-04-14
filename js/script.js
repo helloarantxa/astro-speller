@@ -1,10 +1,3 @@
-
-// const background = new Image();
-// background.src = "./images/bg.png";
-// background.onload = function() {
-//   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-// }
-
 //banner logo
 const bannerContainer = document.getElementById("banner-container");
 bannerContainer.classList.remove("hidden");
@@ -81,7 +74,7 @@ function findWord() {
     if(i === 0 || vowels.includes(element)){
       return element
     } else {
-      return '_'
+      return ' _ '
     }
   })
 }
@@ -103,7 +96,7 @@ let correctWord = 0;
 
 
 function checkGuess(guess) {
-    console.log("Guess:", guess);
+    console.log("Gues:", guess);
     console.log("Word:", word.join(""));
     if (guess === word.join("")) {
       clearInterval(interval);

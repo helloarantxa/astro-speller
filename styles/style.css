@@ -10,10 +10,29 @@ body {
     background-position: center;
     background-color: white;
     background-image: url('../images/bg.png');
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+  }
+
+  html,
+    body {
+  overflow: hidden;
   }
   
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, sans-serif;
+  }
+  
+  button, input, label {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+  }
+
   #logo {
     width: 45%;
+    margin-top: 80px;
     margin-bottom: 20px;
     position: relative;
     z-index: 1;
@@ -24,12 +43,13 @@ body {
     width: 250px;
     height: auto;
     position: absolute;
-    bottom: 50px;
+    bottom: 120px;
     left: calc(50% - 125px);
   }
   
   #game-board {
     margin-top: 150px;
+    margin-bottom: 50px;
     visibility: hidden;
     height: 0px;
   }
@@ -44,7 +64,7 @@ body {
   
   .timer-container {
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 20px;
     background-color: #E4A937;
     border-radius: 7.5px;
@@ -58,7 +78,7 @@ body {
   #timer {
     margin-top: 10px;
     position: fixed;
-    top: 40px;
+    top: 70px;
     right: 40px;
     background-color: #E4A937;
     padding: 5px 10px;
@@ -82,14 +102,52 @@ body {
     height: 100vh;
   }
 
-  .score{
+  .score {
+    color: white;
+    font-size: 30px;
+    margin-top: 50px;
     visibility: hidden;
+  }
+  
+  .over{
+    font-size: 30px;
+    margin-top: -150px;
+    color: white;
+    visibility: hidden;
+  }
+
+  #submit-button {
+    background-color: #E4A937;
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    margin-top: -40px;
+  }
+
+
+  #guess-input {
+    font-size: 24px;
+    border-radius: 15px;
+    padding: 10px;
+  }
+
+  label[for="guess-input"] {
+    font-weight: bold;
+    font-size: 30px;
+    color: #E4A937;
+
+  }
+
+  #message {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
     color: white;
   }
 
-  .over{
-    color: white;
-    visibility: hidden;
+  #word {
+    font-weight: bold;
+    font-size: 55px;
+    color: #E4A937;
   }
-  
-  
+
