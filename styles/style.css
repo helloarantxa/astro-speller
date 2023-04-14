@@ -15,10 +15,10 @@ body {
     color: black;
   }
 
-  html,
+  /* html,
     body {
   overflow: hidden;
-  }
+  } */
   
   h1, h2, h3, h4, h5, h6 {
     font-family: Arial, sans-serif;
@@ -34,7 +34,7 @@ body {
     width: 45%;
     margin-top: 80px;
     margin-bottom: 20px;
-    position: relative;
+    /* position: relative; */
     z-index: 1;
   }
   
@@ -42,7 +42,7 @@ body {
     cursor: pointer;
     width: 250px;
     height: auto;
-    position: absolute;
+    /* position: absolute; */
     bottom: 120px;
     left: calc(50% - 125px);
   }
