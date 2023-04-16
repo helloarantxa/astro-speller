@@ -21,7 +21,7 @@ let interval;
 
 //Array of words
 let wordHtml = document.querySelector('#word')
-let wordsArray = ['school', 'books', 'teacher', 'playground', 'desk', 'pencil', 'computer', 'crayon','glue','notebook']
+let wordsArray = ['actors', 'emperor', 'character', 'inventor', 'janitor', 'narrator', 'neighbor', 'painters','players','soldier','together','visitor']
 let word
 let filteredWord
 let currentWordIndex = 0;
